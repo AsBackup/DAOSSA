@@ -52,7 +52,7 @@ mean_yl=rho*np.sin(theta)
 #变换矩阵
 U=np.array([ [np.cos(theta), -rho* np.sin(theta)], [np.sin(theta) , rho* np.cos(theta)] ])
 #协方差矩阵
-C_l=U*C*U.T
+C_l=np.matmul(U,np.matmul(C,U.T))
 
 
 #蒙特卡洛模拟------------------------------------------------------------
