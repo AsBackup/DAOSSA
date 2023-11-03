@@ -44,11 +44,11 @@ print( 'alpha:', alpha ) # 可以看到是自带 u.rad 单位的，因此在后�
 
 # 输出
 print( '输出展示' )
-print( v ) # 如果不用输出可以不需要管值和单位
+print( v ) # 如果不用输出可以不需要理会它的值和单位
 print( v.decompose() ) # 输出时单位化简
 print( v.decompose() * u_L / u_T ) # 输出标准单位
 
-# 仅输出值而不带 units 单位时建议使用 .to_balue() 而不是 .value ，后者可能因为单位不确定而造成结果错误
+# 仅输出值而不带 units 单位时建议使用 .to_value() 而不是 .value ，后者可能因为单位不确定而造成结果错误
 print( '不带单位结果\n',slambda.value, slambda.to_value('rad'), slambda.to_value('deg') )
 
 
