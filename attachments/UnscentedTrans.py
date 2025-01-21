@@ -11,8 +11,8 @@ r=np.sqrt(2)
 rho=1
 theta=1
 
-rms_rho=0.16
-rms_theta=0.81
+rms_rho=0.2
+rms_theta=0.8
 
 
 
@@ -56,7 +56,7 @@ C_l=np.matmul(U,np.matmul(C,U.T))
 
 
 #蒙特卡洛模拟------------------------------------------------------------
-N_mc=10000
+N_mc=100000
 rho_mc=np.zeros(N_mc)
 theta_mc=np.zeros(N_mc)
 for i in range(N_mc):
@@ -86,12 +86,12 @@ plt.plot(xy[:,0],xy[:,1],'r.' ,markersize=20 )
 plt.plot(0,0,'k.' ,markersize=20 )
 
 
-print('无迹变换')
-print(f'{mean_xy[0]:.6f}   {mean_xy[1]:.6f}')
-print(f'   {std_x:.6f}   {std_y:.6f}   {std_xy:.6f}')
 print('线性变换')
 print(f'{mean_xl:.6f}   {mean_yl:.6f}')
 print(f'   {C_l[0,0]:.6f}   {C_l[1,1]:.6f}   {C_l[0,1]:.6f}')
+print('无迹变换')
+print(f'{mean_xy[0]:.6f}   {mean_xy[1]:.6f}')
+print(f'   {std_x:.6f}   {std_y:.6f}   {std_xy:.6f}')
 print('蒙特卡洛模拟')
 print(f'{mean_x_mc:.6f}   {mean_y_mc:.6f}')
 print(f'   {std_x_mc:.6f}   {std_y_mc:.6f}   {std_xy_mc:.6f}')
