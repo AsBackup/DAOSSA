@@ -36,13 +36,13 @@ for i in range(4):
 
 
 mean_xy=xy.sum(axis=0) * omega #均值
-std_x=0
-std_y=0
-std_xy=0
+var_x=0
+var_y=0
+var_xy=0
 for i in range(4): #方差和协方差
-    std_x += omega * (xy[i,0]-mean_xy[0])**2
-    std_y += omega * (xy[i,1]-mean_xy[1])**2
-    std_xy+= omega * (xy[i,0]-mean_xy[0])*(xy[i,1]-mean_xy[1])
+    var_x += omega * (xy[i,0]-mean_xy[0])**2
+    var_y += omega * (xy[i,1]-mean_xy[1])**2
+    var_xy+= omega * (xy[i,0]-mean_xy[0])*(xy[i,1]-mean_xy[1])
 
 
 #线性变换-------------------------------------------------------------
@@ -69,9 +69,9 @@ y_mc=rho_mc*np.sin(theta_mc)
 mean_x_mc=x_mc.mean()
 mean_y_mc=y_mc.mean()
 
-std_x_mc = ((x_mc-mean_x_mc)**2).mean()
-std_y_mc = ((y_mc-mean_y_mc)**2).mean()
-std_xy_mc = ((x_mc-mean_x_mc)*(y_mc-mean_y_mc)).mean()
+var_x_mc = ((x_mc-mean_x_mc)**2).mean()
+var_y_mc = ((y_mc-mean_y_mc)**2).mean()
+var_xy_mc = ((x_mc-mean_x_mc)*(y_mc-mean_y_mc)).mean()
 
 
 
@@ -91,10 +91,10 @@ print(f'{mean_xl:.6f}   {mean_yl:.6f}')
 print(f'   {C_l[0,0]:.6f}   {C_l[1,1]:.6f}   {C_l[0,1]:.6f}')
 print('无迹变换')
 print(f'{mean_xy[0]:.6f}   {mean_xy[1]:.6f}')
-print(f'   {std_x:.6f}   {std_y:.6f}   {std_xy:.6f}')
+print(f'   {var_x:.6f}   {var_y:.6f}   {var_xy:.6f}')
 print('蒙特卡洛模拟')
 print(f'{mean_x_mc:.6f}   {mean_y_mc:.6f}')
-print(f'   {std_x_mc:.6f}   {std_y_mc:.6f}   {std_xy_mc:.6f}')
+print(f'   {var_x_mc:.6f}   {var_y_mc:.6f}   {var_xy_mc:.6f}')
 
 
 
